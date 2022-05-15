@@ -1,28 +1,21 @@
 <html>
-
+<head>
+    <title>DIT IS EEN TEST</title>
+</head>
+<body>
+    <form action="../back/register.php" method="POST">
+        <label>email</label>
+        <input type="text" name="email"></input>
+        <label>firstName</label>
+        <input type="text" name="firstName"></input>
+        <label>lastName</label>
+        <input type="text" name="lastName"></input>
+        <label>password</label>
+        <input type="password" name="password"></input>
+ 
+        <button name="Verstuur">
+            Verstuur
+        </button>
+    </form>
+</body>
 </html>
-
-<?php
-
-
-    require './config.php';
-    if(isset($_POST['Verstuur'])){
-        $email = $_POST['email'];
-      $firstName = $_POST['firstName'];  
-      $lastName = $_POST['lastName'];  
-      $password = sha1($_POST['password']);  
-
-      $query = "INSERT INTO Users VALUES (NULL, ' $email' , '$firstName' , '$lastName', '$password')";
-
-        if(mysqli_query($mysqli, $query)){
-            echo "Het aanmaken van een gebruiker is gelukt!";
-            header('Location: /Examen/front');
-        }
-        else{
-            echo "Het aanmaken van een gebruiker is gelukt!";
-        }
-
-    }
-
-
-?>
